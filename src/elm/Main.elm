@@ -12,8 +12,7 @@ update msg model =
     Decrement ->
       model - 1
 
-btn props children =
-  button [ class "bg-blue hover:bg-blue-light text-white font-bold py-2 px-4 border-b-4 border-blue-dark hover:border-blue rounded" ] children
+btn = "bg-blue hover:bg-blue-light text-white font-bold py-2 px-4 border-b-4 border-blue-dark hover:border-blue rounded"
 
 view model =
     div [] [
@@ -22,13 +21,13 @@ view model =
           ]
       , div [ class "flex justify-center p-1 items-center" ] [
             div [ class "p-1"] [
-                btn [ onClick Increment ] [ text "Increment" ]
+                button [ class btn, onClick Increment ] [ text "Increment" ]
               ]
           , div [ class "p-1" ] [
               strong [] [ text (toString model) ]
             ]
           , div [ class "p-1" ] [
-              btn [ onClick Decrement ] [ text "Decrement" ]
+              button [ class btn, onClick Decrement ] [ text "Decrement" ]
             ]
         ]
       , div [ class "flex justify-center p-2" ] [
