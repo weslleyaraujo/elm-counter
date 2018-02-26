@@ -8,6 +8,16 @@
     "type": "git",
     "url": "https://github.com/moarwick/elm-webpack-starter"
   },
+  "gh-pages-deploy": {
+    "staticpath": "dist",
+    "prep": [
+      "build"
+    ],
+    "post": [
+      "clean-source"
+    ],
+    "noprompt": false
+  },
   "scripts": {
     "start": "webpack-dev-server --hot --inline",
     "prebuild": "rimraf dist",
