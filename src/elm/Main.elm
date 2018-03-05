@@ -10,6 +10,11 @@ type Msg
     | Decrement
 
 
+type alias Model =
+    Int
+
+
+update : Msg -> Model -> Model
 update msg model =
     case msg of
         Increment ->
@@ -19,10 +24,21 @@ update msg model =
             model - 1
 
 
+btn : String
 btn =
-    "bg-blue hover:bg-blue-light text-white font-bold py-2 px-4 border-b-4 border-blue-dark hover:border-blue rounded"
+    "bg-blue"
+        ++ "hover:bg-blue-light"
+        ++ "text-white"
+        ++ "font-bold"
+        ++ "py-2"
+        ++ "px-4"
+        ++ "border-b-4"
+        ++ "border-blue-dark"
+        ++ "hover:border-blue"
+        ++ "rounded"
 
 
+view : Model -> Html.Html Msg
 view model =
     div []
         [ div [ class "flex justify-center p-4" ]
@@ -48,5 +64,6 @@ view model =
         ]
 
 
+main : Program Never Int Msg
 main =
     beginnerProgram { model = 0, view = view, update = update }
